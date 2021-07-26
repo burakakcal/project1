@@ -1,0 +1,39 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project 1</title>
+<link href="style.css" rel="stylesheet">
+<script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-a11y="true"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+</head>
+<body>
+<!-- Inserting the container that will have the toggle in -->	
+    <div class="container">
+      <span class="one">
+  <h1>Night/Day Switcher</h1>
+</span>
+<!-- beginning of the switch -->
+        <div class="sw"><span id="switch">
+                   <input id="check" type="checkbox"/><p id="main-button">Toggle mode here:</p>
+    <label class="switch" for="check"><div class="text1">NIGHT MODE</div><div class="text2">DAY MODE</div></label>
+ <!-- I will use icons to represent the "day mode" and "night mode". FA icon set used. -->
+<label class="on" for="check"> <i class="fas fa-sun" id="sun"></i></label>
+<label class="off" for="check"><i class="fas fa-moon" id="moon"></i></label>
+  </span></div>
+        <div class="extras">
+      <p id="main-button2">Yet, some other buttons (these toggle the size of the moon/sun):</p><button id="btn1">SMALL</button>
+	<button id="btn2">MEDIUM</button>
+	<button id="btn3">LARGE</button>
+        </div>
+                <div class="stars">
+    <div class="p p-1"></div>
+    <div class="p p-2"></div>
+    <div class="p p-3"></div>
+</div>
+                  <!-- The moon here is also the sun for light mode -->
+      <div class="moon"></div>
+        <script src="script.js" language="JavaScript" type="text/javascript"></script>
+    </div>
+</body>
+</html>

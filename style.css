@@ -1,0 +1,412 @@
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&display=swap');
+
+@keyframes glow{
+  from{text-shadow:0px 0px 5px #fff,0px 0px 5px #614ad3;}
+  to{text-shadow:0px 0px 20px #fff,0px 0px 20px #614ad3;}
+}
+
+/*star animation as particle. This is will only be visible when not toggled*/
+@keyframes particleAnimation
+{
+    from {
+        left: -100px;
+    }
+    to {
+        left: calc( 100% + 100px );
+    }
+}
+
+/*General background when not toggled*/
+html {
+    background-color: #111;
+    transition: 1s;
+}
+
+/* General background color when toggled. This checks whether the #main-button is clicked */
+html.toggled {
+    background-color: #87ceeb;
+}
+
+.container {
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+/* The background settings for behind the .switch */
+span>div {
+    display: block;
+    width: 90px;   
+    height: 160px;
+    position: relative;
+    margin-top: 50px;
+    background-color: black;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+
+/* When toggled, the background color changes from day/night mode */
+.toggled span>div {
+    background-color: #000;
+}
+
+/* Set the fontawesome icon size and make them position seperate from rest of the page */
+.fa-sun, .fa-moon {
+    font-size: 35px;
+}
+
+svg {
+    position: absolute;
+}
+
+/*sun and moon positioning*/
+.fa-sun, .fa-moon {
+    opacity:1;
+}
+
+.fa-sun {
+  left:150px;
+    color: transparent;
+    transition:1.5s;
+}
+
+.fa-moon {
+    color: #f9d71c;
+    font-size:35px;
+  transition:1.5s;
+}
+
+.toggled .fa-moon
+{
+  color: transparent;
+  transition:1.5s;
+}
+
+.toggled .fa-sun{
+    color:#f9d71c;
+    transition:1.5s;
+}
+
+/* This is the background settings for the actual button. It will change when toggled from day mode to night mode, visa versa. */
+span div div {
+    position: absolute;
+    border-radius:20px;
+    border-style: inset;
+    border-color: white;
+    background-color: #333;
+    width: 80px;
+    height: 80px;
+    border-radius: 20px;
+    border-style: inset;
+    border-width:10px;
+    border-color: #444;
+    left: -6px;
+    top: -10px;
+    box-shadow: 20px 5px 15px black;
+    background-image: radial-gradient( transparent 20%, #00000033);
+    cursor: pointer;
+    transition: 1s;
+}
+/* TOGGLED */
+/* Button toggle background setting changes */
+.toggled span div div {
+    top: 70px;
+    background-color: white;
+    border-radius:20px;
+    border-style: inset;
+}
+
+.toggled span div div:hover {
+    -webkit-transform: scale(1.05);
+    transform: scale(1.05);
+}
+
+
+/*Settings for moon or sun in light mode. It not only transitions to the left side of the screen, but it also changes color from moon color to sun.*/
+.moon{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(70deg, white, #e3e3f3);
+    border-radius: 50%;
+    top: 10%;
+    right: 10%;
+    box-shadow: 0px 0px 15px 0px white;
+    animation:  cubic-bezier(.57,.21,.69,1.25);
+    transition:1.5s;
+    z-index:1;
+}
+
+/*This is actually turning into the sun, although not realistic, I thought it was neat*/
+.toggled .moon{
+    background: linear-gradient(70deg, yellow, #f9d71c);
+    right: 60%;
+    transition:1.5s;
+}
+
+.toggled .stars{
+    display:none;
+}
+
+/* Text on button, Click Me*/
+#main-button2 {
+  margin-top:50px;
+    font-size:18px;
+    color:white;
+    line-height:40px;
+    text-align: left;
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+#main-button {
+  margin-top:350px;
+    margin-left:350px;
+    font-size:18px;
+    color:white;
+    line-height:40px;
+    text-align: left;
+    font-family: 'ZCOOL KuaiLe', cursive;
+}
+  
+  .toggled #main-button2 #main-button {
+    color:black;
+    transition:1s;
+    
+  }
+
+/* Adding some animation to the button when hovered. This will give a better U/X*/
+#main-button:hover {
+    animation-name:glow;
+    animation-duration:1.5s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+  
+}
+
+#main-button2:hover {
+    animation-name:glow;
+    animation-duration:1.5s;
+    animation-iteration-count:infinite;
+    animation-direction:alternate;
+  
+}
+
+
+/* Adding some animation to the button when hovered. This will give a better U/X*/
+
+
+/* Star animation
+/*----------->START*/
+.p{
+    position:fixed;
+    left:0px;
+    top:50px;
+    width:1px;
+    height:1px;
+    background-color:white;
+    position:fixed;
+    animation-name:particleAnimation;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+.p::before{
+    position:absolute;
+    display:block;
+    content:"";
+    width:100px;
+    right:1px;
+    top:0px;
+    height:1px;
+    background: linear-gradient(to right, rgba(0,0,0,0) 0%,rgba(255,255,255,0.4) 100%); 
+}
+.p-1{
+    animation-duration:10s;
+}
+.p-2{
+    animation-duration:5s;
+    top:35%;
+}
+.p-3{
+    animation-duration:20s;
+    top:90%;
+}
+
+
+
+
+/*Switch*/
+#check {
+  display: none;
+}
+#check:checked ~ .switch {
+  background-color: #3bb143;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -ms-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+}
+#check:checked ~ .on {
+  opacity: 1;
+  -webkit-animation: 0.5s spring;
+  -moz-animation: 0.5s spring;
+  animation: 0.5s spring;
+  -webkit-animation-delay: 0.25s;
+  -moz-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+  color: #3bb143;
+}
+#check:checked ~ .off {
+  color: #777;
+}
+#check:not(:checked) ~ .off {
+  opacity: 1;
+  -webkit-animation: 0.5s spring;
+  -moz-animation: 0.5s spring;
+  animation: 0.5s spring;
+  -webkit-animation-delay: 0.25s;
+  -moz-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+}
+
+.switch {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
+  background-color: black;
+  border-bottom-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-top-right-radius: 50%;
+  background: linear-gradient(70deg, black, grey);
+  box-shadow: 0 0 8px 0 #e3e3f3;
+  -webkit-transition: all 0.25s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  cursor: pointer;
+  font-family: 'ZCOOL KuaiLe';
+  font-size:11px;
+  color:white;
+  transition:0.8s;
+  
+}
+
+.on,
+.off {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width:180px;
+  height: 40px;
+  opacity: 0.5;
+  z-index:-1;
+}
+
+.on {
+  left: 180px;
+  border-bottom-right-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.off {
+  right: 180px;
+  border-bottom-left-radius: 5px;
+  border-top-left-radius: 5px;
+  color: #7D3238;
+}
+
+@-webkit-keyframes spring {
+  50% {
+    top: 10px;
+  }
+}
+@-moz-keyframes spring {
+  50% {
+    top: 10px;
+  }
+}
+@keyframes spring {
+  50% {
+    top: 10px;
+  }
+}
+
+.text1{
+  transform:rotate(44deg);
+  margin-right:70px;
+  margin-left:15px;
+}
+.text2{
+  visibility:hidden;
+}
+
+.toggled .text2{
+  visibility:visible;
+  transform:rotate(222deg);
+  margin-right:15px;
+  margin-left:19px;
+  transition:0.2s;
+
+}
+
+.toggled .text1{
+  visibility:hidden;
+
+}
+
+/* === BASE HEADING === */ 
+
+h1 {
+  font-size:25px;
+  text-align:center;
+  font-family: 'ZCOOL KuaiLe', cursive;
+  text-transform: uppercase;
+	/* Gradient text CSS*/
+	background: linear-gradient(45deg, #f3ec78, #af4261);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent; 
+}
+ 
+button{
+      font-family: 'ZCOOL KuaiLe', cursive;
+      font-size:10px;
+      height: 3em;
+      width: 10%;
+      background-color: #AEA8D3;
+      border: none;
+      border-radius: 3px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      transition: all 0.2s cubic-bezier(.4,0,.2,1);
+}
+
+button {
+    
+}
+
+button:hover {
+    letter-spacing: 0.8em;
+    background-color: #F08C99;
+    cursor:grab;
+}
+
+.extras{
+    margin-top:200px;
+    margin-left:650px;
+}
